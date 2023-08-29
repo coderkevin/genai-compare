@@ -1,32 +1,25 @@
-import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import readUrl from "./read-url";
 
 const OPENAI_KEY = process.env.GENAI_OPENAI_KEY;
 const OPENAI_MODEL = "gpt-3.5-turbo";
 
 const openai = new OpenAI({ apiKey: OPENAI_KEY });
 
-const openAIQuery = async () => {
+const openAIQuery = async (question: string, topic: string, url: string) => {
   if (!OPENAI_KEY) {
     console.error("OPENAI_KEY not set");
-    return NextResponse.json(
-      {
-        message: "Config error",
-      },
-      {
-        status: 500,
-      }
-    );
+    throw new Error("OPENAI_KEY not set");
   }
+
+  const page = await readUrl(url);
+  const message = `On the topic of "${topic}", using only the text below, theorize and answer the question "${question}".\n${page}`;
 
   try {
     const completion = await openai.chat.completions.create({
       model: OPENAI_MODEL,
-      messages: [{ role: "user", content: "Say hello in 5 languages" }],
+      messages: [{ role: "user", content: message }],
     });
-    console.log("completion:", completion);
-    console.log("choices[0]:", completion.choices[0]);
-
     return completion.choices[0].message?.content;
   } catch (e: any) {
     if (e.response) {

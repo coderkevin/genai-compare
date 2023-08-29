@@ -9,6 +9,7 @@ const StyledCard = styled.div`
   background-color: #505050;
   color: #f0f0f0;
   padding: 1rem;
+  max-width: 90%;
 `;
 
 export default StyledCard;

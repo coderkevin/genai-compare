@@ -16,6 +16,10 @@ const StyledFormButton = styled.button`
   &:active {
     background-color: #909090;
   }
+  &:disabled {
+    color: #606060;
+    border-color: #606060;
+  }
 `;
 
 export default StyledFormButton;

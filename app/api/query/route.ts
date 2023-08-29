@@ -1,9 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import openAIQuery from "./openai-query";
 
-export async function GET() {
+export async function POST(request: NextRequest) {
   try {
-    return NextResponse.json({ response: await openAIQuery() });
+    const { question, topic, url } = await request.json();
+
+    return NextResponse.json({
+      response: await openAIQuery(question, topic, url),
+    });
   } catch (e: any) {
     const errorMessage =
       e instanceof Error ? e.message : `Unrecognized Error: ${e}`;
