@@ -23,3 +23,13 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Still to do
+
+If this project were to grow:
+
+- Add unit tests
+- Add storybook
+- Consider organizing source files further in directory structure
+- Add other AI model options
+- Clear queries when question changes
