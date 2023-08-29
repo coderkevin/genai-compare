@@ -1,4 +1,4 @@
-import StyledForm from "./StyledForm";
+import StyledForm from "./styled-form";
 import StyledWideInput from "./styled-wide-input";
 import StyledCard from "./styled-card";
 import { ChangeEvent } from "react";
