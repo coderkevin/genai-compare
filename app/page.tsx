@@ -1,17 +1,11 @@
-"use client";
-
-import styled from "@emotion/styled";
-
-const AppTitle = styled.h1`
-  font-size: 2em;
-  text-align: center;
-  color: #f0f0f0;
-`;
+import StyledAppTitle from "@/components/styled-app-title";
+import QueryGroup from "@/components/query-group";
 
 export default function Home() {
   return (
     <main>
-      <AppTitle>Generative AI Comparisons Demo</AppTitle>
+      <StyledAppTitle>Generative AI Comparisons Demo</StyledAppTitle>
+      <QueryGroup />
     </main>
   );
 }
