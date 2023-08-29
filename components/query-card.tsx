@@ -2,7 +2,7 @@ import { QueryState } from "@/hooks/useQueryGroupState";
 import StyledCard from "./styled-card";
 import StyledFormButton from "./styled-form-button";
 import StyledWideInput from "./styled-wide-input";
-import StyledForm from "./StyledForm";
+import StyledForm from "./styled-form";
 import { ChangeEvent, MouseEvent } from "react";
 import StyledResponse from "./styled-response";
 import StyledError from "./styled-error";
